@@ -2,7 +2,6 @@ import {
   reactExtension,
   TextField,
   useBuyerJourneyIntercept,
-  useApplyCartAttributesChange,
   BlockStack,
   Text,
   InlineStack,
@@ -34,38 +33,14 @@ function VATChecker() {
   const [validationResult, setValidationResult] = useState<VATValidationResult | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const applyCartAttributesChange = useApplyCartAttributesChange();
-
-  // Update cart attributes
-  const updateCartAttributes = useCallback(async (
-    vat: string, 
-    status: string, 
-    name: string, 
-    checkedAt: string
-  ) => {
-    try {
-      await applyCartAttributesChange({
-        attributes: [
-          { key: 'vat_number', value: vat },
-          { key: 'vat_status', value: status },
-          { key: 'vat_name', value: name },
-          { key: 'vat_checked_at', value: checkedAt },
-        ],
-      });
-    } catch (err) {
-      console.error('Failed to update cart attributes:', err);
-    }
-  }, [applyCartAttributesChange]);
+  // Note: Cart attributes will be handled by the validation function
+  // For now, we'll store validation state locally
 
   // Validate VAT number via API
   const validateVAT = useCallback(async (vat: string) => {
     if (!vat || vat.trim().length < 3) {
       setValidationResult(null);
       setError(null);
-      // Clear attributes if VAT is removed
-      if (vat.trim().length === 0) {
-        await updateCartAttributes('', '', '', '');
-      }
       return;
     }
 
@@ -91,13 +66,8 @@ function VATChecker() {
       const result: VATValidationResult = await response.json();
       setValidationResult(result);
 
-      // Update cart attributes
-      await updateCartAttributes(
-        vat.trim(),
-        result.valid ? 'valid' : 'invalid',
-        result.name || '',
-        new Date().toISOString()
-      );
+      // Note: Cart attributes will be set via checkout attributes API
+      // The validation function will read from cart attributes
 
       if (result.error && !result.cached) {
         setError('VIES service temporarily unavailable. Please try again.');
@@ -110,11 +80,10 @@ function VATChecker() {
       console.error('VAT validation error:', err);
       setError('Unable to validate VAT number. Please try again.');
       setValidationResult({ valid: false });
-      await updateCartAttributes(vat.trim(), 'invalid', '', new Date().toISOString());
     } finally {
       setIsValidating(false);
     }
-  }, [updateCartAttributes]);
+  }, []);
 
   // Handle VAT input change with debounce
   useEffect(() => {

@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 name = "VAT Checker"
-client_id = "YOUR_CLIENT_ID"
+client_id = "e9145825ecb3c3d6d6a02e743850447e"
 application_url = "https://sf-vat-checker-web.vercel.app"
 embedded = true
 
@@ -25,5 +25,4 @@ embedded = false
 [build]
 automatically_update_urls_on_dev = true
 dev_store_url = "YOUR_DEV_STORE.myshopify.com"
-include_config_on_deploy = true
 

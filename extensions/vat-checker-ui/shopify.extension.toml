@@ -1,6 +1,12 @@
 name = "VAT Checker UI"
+uid = "7ac33d28-8ca7-d30c-7213-36719d2d88cb14ab018d"
 type = "checkout_ui_extension"
 version = "1.0.0"
+
+[base]
+targeting = [
+  { target = "purchase.checkout.block.render" }
+]
 
 [capabilities]
 network_access = true
@@ -14,4 +20,3 @@ network_access_allowlist = [
 [build]
 command = ""
 watch = ["src/**/*"]
-
