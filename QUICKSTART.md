@@ -9,6 +9,8 @@ node --version  # Should be 20+
 shopify version  # Should be 3.x
 ```
 
+**Note:** Make sure you have GitHub CLI installed for easier authentication: `brew install gh`
+
 ## Step 1: Install Dependencies
 
 ```bash
