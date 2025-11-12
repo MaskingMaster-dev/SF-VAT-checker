@@ -2,7 +2,7 @@
 
 name = "VAT Checker"
 client_id = "YOUR_CLIENT_ID"
-application_url = "https://localhost:3000"
+application_url = "https://sf-vat-checker-web.vercel.app"
 embedded = true
 
 [access_scopes]
@@ -11,9 +11,9 @@ scopes = "write_orders,read_orders,write_checkouts,read_checkouts"
 
 [auth]
 redirect_urls = [
-  "https://localhost:3000/auth/callback",
-  "https://localhost:3000/auth/shopify/callback",
-  "https://localhost:3000/api/auth/callback"
+  "https://sf-vat-checker-web.vercel.app/auth/callback",
+  "https://sf-vat-checker-web.vercel.app/auth/shopify/callback",
+  "https://sf-vat-checker-web.vercel.app/api/auth/callback"
 ]
 
 [webhooks]

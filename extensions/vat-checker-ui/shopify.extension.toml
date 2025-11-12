@@ -4,7 +4,12 @@ version = "1.0.0"
 
 [capabilities]
 network_access = true
-network_access_allowlist = ["https://localhost:3000", "https://*.ngrok.io", "https://*.ngrok-free.app"]
+network_access_allowlist = [
+  "https://sf-vat-checker-web.vercel.app",
+  "https://*.vercel.app",
+  "https://*.ngrok.io",
+  "https://*.ngrok-free.app"
+]
 
 [build]
 command = ""

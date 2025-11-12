@@ -14,7 +14,7 @@ import { useState, useEffect, useCallback } from 'react';
 // In local development, this will be the ngrok URL provided by Shopify CLI
 // In production, set this to your production backend URL
 // The network_access_allowlist in shopify.extension.toml must include this URL
-const API_URL = 'https://localhost:3000';
+const API_URL = 'https://sf-vat-checker-web.vercel.app';
 
 export default reactExtension('purchase.checkout.block.render', () => <VATChecker />);
 
