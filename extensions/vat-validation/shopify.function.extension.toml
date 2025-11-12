@@ -1,0 +1,8 @@
+name = "VAT Validation"
+type = "checkout_validation"
+api_version = "2025-01"
+
+[build]
+command = ""
+watch = []
+

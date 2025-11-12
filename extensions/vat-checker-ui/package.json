@@ -1,0 +1,13 @@
+{
+  "name": "vat-checker-ui",
+  "version": "1.0.0",
+  "dependencies": {
+    "@shopify/ui-extensions-react": "^2025.1.0",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "typescript": "^5.0.0"
+  }
+}
+

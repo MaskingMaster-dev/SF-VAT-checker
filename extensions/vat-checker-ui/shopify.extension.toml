@@ -1,0 +1,12 @@
+name = "VAT Checker UI"
+type = "checkout_ui_extension"
+version = "1.0.0"
+
+[capabilities]
+network_access = true
+network_access_allowlist = ["https://localhost:3000", "https://*.ngrok.io", "https://*.ngrok-free.app"]
+
+[build]
+command = ""
+watch = ["src/**/*"]
+
