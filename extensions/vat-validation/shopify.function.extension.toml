@@ -1,8 +1,0 @@
-name = "VAT Validation"
-uid = "0d062287-52a9-5d2a-5da8-6b4991e6874cac6a97d7"
-type = "function"
-api_version = "2025-01"
-
-[build]
-command = "echo 'No build needed for JavaScript function'"
-watch = []
