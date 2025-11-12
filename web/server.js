@@ -37,7 +37,7 @@ app.use((err, req, res, next) => {
 export default app;
 
 // Start server for local development
-if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
   app.listen(PORT, () => {
     console.log(`VAT Checker API running on ${APP_URL}`);
   });

@@ -8,20 +8,18 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "web/server.js"
+      "src": "/api/vat/validate",
+      "dest": "web/server.js",
+      "methods": ["POST", "OPTIONS"]
     },
     {
       "src": "/health",
-      "dest": "web/server.js"
+      "dest": "web/server.js",
+      "methods": ["GET"]
     },
     {
       "src": "/(.*)",
       "dest": "web/server.js"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
-
